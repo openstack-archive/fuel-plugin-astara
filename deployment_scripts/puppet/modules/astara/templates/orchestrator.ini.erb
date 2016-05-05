@@ -1,0 +1,74 @@
+[DEFAULT] <% settings = scope.lookupvar('@fuel-plugin-astara') %>
+debug = False
+
+log_dir = /var/log/astara
+log_file = /var/log/astara/orchestrator.log
+
+auth_region = <%= @astara_settings['auth_region'] %>
+auth_url = <%= @astara_settings['auth_url'] %>
+
+instance_provider = <%= @astara_settings['instance_provider'] %>
+management_network_id = <%= @astara_settings['management_network_id'] %>
+management_subnet_id = <%= @astara_settings['management_subnet_id'] %>
+management_prefix = <%= @astara_settings['management_prefix'] %>
+
+enabled_drivers = <%= @astara_settings['enabled_drivers'] %> 
+
+external_network_id = <%= @astara_settings['external_network_id'] %>
+external_subnet_id = <%= @astara_settings['external_subnet_id'] %>
+external_prefix = <%= @astara_settings['external_prefix'] %>
+
+interface_driver = <%= @astara_settings['interface_driver'] %>
+
+plug_external_port = True
+
+ssh_public_key = /etc/astara/id_rsa.pub
+
+provider_rules_path = /etc/astara/provider_rules.json
+
+reboot_error_threshold =32
+num_worker_threads = 2
+num_worker_processes = 2
+boot_timeout = 3000
+
+host = <%= @astara_settings['controller'] %>
+
+[AGENT]
+root_helper = sudo /usr/bin/astara-rootwrap /etc/astara/rootwrap.conf
+
+[ceilometer]
+
+[coordination]
+
+[database]
+connection = <%= @astara_settings['db_connection'] %>
+
+[keystone_authtoken]
+auth_plugin = password
+auth_uri = <%= @astara_settings['auth_uri'] %>
+auth_url = <%= @astara_settings['auth_url'] %>
+identity_uri = <%= @astara_settings['identity_uri'] %>
+project_domain_id = <%= @astara_settings['project_domain_id'] %>
+project_name = <%= @astara_settings['project_name'] %>
+user_domain_id = <%= @astara_settings['user_domain_id'] %>
+password = <%= @astara_settings['keystone_passwd'] %>
+username = <%= @astara_settings['keystone_user'] %>
+
+[loadbalancer]
+# image_uuid = <%= @astara_settings['lb_image_uuid'] %>
+# instance_flavor = <%= @astara_settings['lb_instance_flavor'] %>
+
+[matchmaker_redis]
+
+[oslo_messaging_amqp]
+
+[oslo_messaging_rabbit]
+rabbit_host = <%= @astara_settings['rabbit_host'] %>
+rabbit_userid = <%= @astara_settings['rabbit_user'] %>
+rabbit_password = <%= @astara_settings['rabbit_password'] %>
+
+[pez]
+
+[router]
+image_uuid = <%= @astara_settings['router_image_uuid'] %>
+instance_flavor = <%= @astara_settings['router_instance_flavor'] %>

@@ -1,0 +1,11 @@
+#!/bin/bash
+set -eux
+
+ROOT="$(dirname `readlink -f $0`)"
+RPM_REPO="${ROOT}"/repositories/centos/
+DEB_REPO="${ROOT}"/repositories/ubuntu/
+
+# DEB Package Files
+# RPM Package Files
+# wget -P "${RPM_REPO}" "${ASTARA_MITAKA_REPO_LOC}/"
+

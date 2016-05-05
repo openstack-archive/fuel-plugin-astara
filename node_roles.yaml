@@ -1,0 +1,17 @@
+network-orchestrator-node:
+  # Role name
+  name: "Network Orchestrator Node"
+  # Role description
+  description: "Role to create a seperate Node for Astara Network Orchestartor Service"
+  # If primary then during orchestration this role will be
+  # separated into primary-role and role
+  has_primary: true
+  # Assign public IP to node if true
+  public_ip_required: false
+  # Weight that will be used to sort out the
+  # roles on the Fuel web UI
+  weight: 1000
+  conflicts:
+    - compute
+  limits:
+    min: 1

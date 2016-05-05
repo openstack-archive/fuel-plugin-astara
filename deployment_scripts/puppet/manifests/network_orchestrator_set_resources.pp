@@ -1,0 +1,3 @@
+
+class { 'astara::networks::set': }
+
