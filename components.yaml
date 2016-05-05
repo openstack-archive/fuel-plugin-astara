@@ -1,0 +1,28 @@
+# This file contains wizard components descriptions that are pretty similar to
+# the `environment_config.yaml`.
+# Please, take a look at following link for the details:
+# - https://blueprints.launchpad.net/fuel/+spec/component-registry
+# - https://specs.openstack.org/openstack/fuel-specs/specs/8.0/component-registry.html
+
+- name: 'additional_service:astara'
+  label: "Astara Network Orchestrator"
+  description: "Astara Network Orchestrator is a production grade L3-L7 Network Service Platform"
+  bind: !!pairs
+    - "cluster:net_provider": "neutron"
+  requires: 
+    - name: 'network:neutron:core:ml2'
+  compatible: 
+    - name: 'hypervisor:libvirt:*' 
+    - name: 'hypervisor:kvm' 
+    - name: 'hypervisor:qemu' 
+    - name: 'network:neutron:vlan'
+    - name: 'network:neutron:tun'
+    - name: "storage:block:lvm"
+    - name: "storage:image:ceph"
+    - name: "storage:object:ceph"
+    - name: "additional_service:ceilometer"
+    - name: "storage:block:ceph"
+    - name: "storage:ephemeral:ceph"
+  incompatible: 
+    - name: 'hypervisor:vmware'
+      description: 'Astara is not compatible with VMware vSphere'

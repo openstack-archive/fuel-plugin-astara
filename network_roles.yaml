@@ -1,0 +1,17 @@
+# Unique network role name
+- id: "astara_neutron"
+  # Role mapping to network
+  default_mapping: "management"
+  properties:
+    # Should be true if network role requires subnet being set
+    subnet: true
+    # Should be true if network role requires gateway being set
+    gateway: false
+    # List of VIPs to be allocated
+    vip:
+         # Unique VIP name
+       - name: "astara_orchestrator_vip"
+         # Optional linux namespace for VIP
+         namespace: "haproxy"
+         alias: "rug_vip"
+         node_roles: ["primary-network-controller", "network-controller"]
